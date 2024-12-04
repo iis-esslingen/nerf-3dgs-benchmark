@@ -1,2 +1,2 @@
 # nerf-3dgs-benchmark
-Code coming soon.
+Code will be published until 13.12.2024.
