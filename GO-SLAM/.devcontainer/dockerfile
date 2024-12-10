@@ -1,0 +1,41 @@
+FROM nvidia/cuda:12.1.0-devel-ubuntu22.04
+
+# Set arguments and environment variables
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Install essential tools
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y build-essential && \
+    apt-get install -y \
+    git \
+    wget \
+    libopenexr-dev \
+    ffmpeg \
+    libsm6 \
+    libxext6 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install miniconda
+ENV CONDA_DIR /opt/conda
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh && \
+    /bin/bash /tmp/miniconda.sh -b -p /opt/conda && \
+    rm /tmp/miniconda.sh
+
+# Put conda in path so we can use conda activate
+ENV PATH=$CONDA_DIR/bin:$PATH
+
+# Initialize conda
+RUN conda init bash
+
+# Clone DROID-SLAM repository and set up the environment
+WORKDIR /workspace
+RUN mkdir -p /workspace/GO-SLAM && \
+    git clone https://github.com/iis-esslingen/GO-SLAM.git /workspace/GO-SLAM && \
+    cd /workspace/GO-SLAM && \
+    conda env create -f environment.yaml
+
+# Activate conda everytime, when (re)opening bash terminal
+RUN echo ". activate go-slam" > ~/.bashrc

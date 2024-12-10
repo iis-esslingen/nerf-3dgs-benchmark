@@ -1,0 +1,44 @@
+FROM nvidia/cuda:11.3.1-devel-ubuntu20.04
+
+# Set arguments and environment variables
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe/Berlin
+
+# Install essential tools
+RUN apt-get update && apt-get install -y \
+    git \
+    pkg-config \
+    unzip \
+    tzdata \
+    libopencv-dev \
+    cmake \
+    wget \
+    libgl1-mesa-glx && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+ENV PATH="/usr/local/cuda-11.3/bin:$PATH"
+ENV LD_LIBRARY_PATH="/usr/local/cuda-11.3/lib64:$LD_LIBRARY_PATH"
+
+# Install miniconda
+ENV CONDA_DIR /opt/conda
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh && \
+    /bin/bash /tmp/miniconda.sh -b -p $CONDA_DIR && \
+    rm /tmp/miniconda.sh
+
+# Put conda in path so we can use conda activate
+ENV PATH=$CONDA_DIR/bin:$PATH
+
+# Initialize conda
+RUN conda init bash
+
+# Clone DROID-SLAM repository and set up the environment
+WORKDIR /workspace
+RUN mkdir -p /workspace/GlORIE-SLAM && \
+    git clone https://github.com/iis-esslingen/GlORIE-SLAM.git /workspace/GlORIE-SLAM && \
+    cd /workspace/GlORIE-SLAM && \
+    conda env create -f glorie_env.yaml
+
+# Activate conda everytime, when (re)opening bash terminal
+RUN echo ". activate glorie-slam" > ~/.bashrc
+
+CMD ["bash"]

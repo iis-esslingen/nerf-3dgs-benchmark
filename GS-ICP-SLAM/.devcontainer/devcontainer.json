@@ -1,0 +1,13 @@
+{
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "container",
+    "overrideCommand": true,
+    "initializeCommand": [
+        "/bin/bash", "-c", ".devcontainer/initialize_command"
+    ],
+    "postCreateCommand": "bash -i GS_ICP_SLAM/.devcontainer/post_install_script.sh",
+    "workspaceFolder": "/workspace",
+    "runArgs": [
+        "--gpus=all"
+    ]
+}
