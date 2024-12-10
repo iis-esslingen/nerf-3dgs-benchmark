@@ -215,7 +215,29 @@ Additionally you can have a look at the script `run_rover_all.sh` that runs all 
 
 
 <details><summary>MonoGS</summary>
-  **Note:** The container currently does not support visualization.
+
+We are using [our fork](https://github.com/iis-esslingen/MonoGS) of the official [MonoGS](https://github.com/muskie82/MonoGS) implementation. 
+
+**Note:** The container currently does not support visualization.
+
+Example to run the application:
+
+```bash
+python run_slam_rover.py \
+    --config /path/to/config.yaml \
+    --input_dir /path/to/input_folder \
+    --output_dir /path/to/output_folder \
+    --eval
+```
+
+#### Parameters:
+- `config`: Path to the configuration file that contains the settings for the SLAM system. For ROVER dataset use `.configs/[mono/rgbd]/ROVER/d435i.yaml`.
+- `data_path`: The path to the input folder containing data.
+- `output_path`: The path where the results will be stored.
+- `eval`: Enables evaluation of results.
+
+Additionally you can have a look at the script `run_rover_all.sh` that runs all of the experiments.
+
 </details> 
 
 <details><summary>Photo-SLAM</summary>
