@@ -11,6 +11,9 @@ The only required software is [Docker](https://www.docker.com/). Each SLAM metho
 
 When running the Dockerfiles, the first step is to navigate to the directory where the dataset is stored, as it will be mounted inside the Docker container.
 
+## Data
+Coming soon.
+
 ## SLAM Methods
 Each method is available as a Docker container. When running the Dockerfiles, the first step is to enter the directory where the dataset is stored, as it will be mounted inside the Docker container.
 
@@ -212,20 +215,72 @@ Additionally you can have a look at the script `run_rover_all.sh` that runs all 
 
 
 <details><summary>MonoGS</summary>
-  tbd.
+  **Note:** The container currently does not support visualization.
 </details> 
 
 <details><summary>Photo-SLAM</summary>
-  tbd.
+
+We are using [our fork](https://github.com/iis-esslingen/Photo-SLAM) of the official [Photo-SLAM](https://github.com/HuajianUP/Photo-SLAM) implementation. 
+
+Example to run the application in monocular mode:
+
+```bash
+./bin/rover_mono \
+    ./ORB-SLAM3/Vocabulary/ORBvoc.txt \
+    ./cfg/ORB_SLAM3/Monocular/ROVER/d435i.yaml \
+    ./cfg/gaussian_mapper/Monocular/ROVER/rover_mono.yaml \
+    "/path/to/data/d435i" \
+    "/output/dir"
+    no_viewer
+```
+
+Example to run the application in RGBD mode:
+
+```bash
+./bin/rover_rgbd \
+    ./ORB-SLAM3/Vocabulary/ORBvoc.txt \
+    ./cfg/ORB_SLAM3/RGB-D/ROVER/d435i.yaml \
+    ./cfg/gaussian_mapper/RGB-D/ROVER/rover_rgbd.yaml \
+    "/path/to/data/d435i" \
+    "/path/to/data/associations.txt" \
+    "/output/dir"
+    no_viewer
+```
+
+Additionally you can have a look at the script `scripts/rover_all.sh` that runs all of the experiments.
+
 </details> 
 
 <details><summary>Splat-SLAM</summary>
-  tbd.
+
+We are using [our fork](https://github.com/iis-esslingen/Splat-SLAM) of the official [GlORIE-SLAM](https://github.com/zhangganlin/GlORIE-SLAM) implementation. 
+
+Example to run the application:
+
+```bash
+python run.py \
+    --config /path/to/config.yaml \
+    --input_dir /path/to/input_folder \
+    --output_dir /path/to/output_folder \
+    --only_tracking
+```
+
+#### Parameters:
+- `config`: Path to the configuration file that contains the settings for the SLAM system. For ROVER dataset use `.configs/ROVER/d435i.yaml`.
+- `input_dir`: The path to the input folder containing data.
+- `output_dir`: The path where the results will be stored. 
+- `only_tracking`: If set, only tracking will be triggered without mapping.
+
+Additionally you can have a look at the script `run_rover_all.sh` that runs all of the experiments.
+
 </details> 
 
 <details><summary>GS-ICP-SLAM</summary>
-  tbd.
+  Coming soon.
 </details> 
+
+## Evaluation
+Coming soon.
 
 ## Citing
 If you find our work useful, please consider citing:
