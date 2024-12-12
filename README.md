@@ -133,7 +133,7 @@ Example to run the application in RGBD mode:
 ```bash
 ./build/rgbd_rover \
     ./Vocabulary/ORBvoc.txt \
-    ./configs/Monocular/ROVER/d435i.yaml \
+    ./configs/RGB-D/ROVER/d435i.yaml \
     "/path/to/data/d435i" \
     "/path/to/data/associations.txt" \
     "/output/dir"
@@ -150,8 +150,7 @@ We are using [our fork](https://github.com/iis-esslingen/GO-SLAM) of the officia
 Example to run the application in monocular mode:
 
 ```bash
-python run_rover.py \
-    --config /path/to/config.yaml \
+python run_rover.py <config> \
     --device <device> \
     --input_folder /path/to/input_folder \
     --output /path/to/output_folder \
@@ -176,10 +175,9 @@ We are using [our fork](https://github.com/iis-esslingen/GlORIE-SLAM) of the off
 Example to run the application:
 
 ```bash
-python run.py \
-    --config /path/to/config.yaml \
-    --input_folder /path/to/input_folder \
-    --output /path/to/output_folder \
+python run.py <config> \
+    --input_dir /path/to/input_folder \
+    --output_dir /path/to/output_folder \
     --only_tracking
 ```
 
@@ -227,8 +225,8 @@ Example to run the application:
 ```bash
 python run_slam_rover.py \
     --config /path/to/config.yaml \
-    --input_dir /path/to/input_folder \
-    --output_dir /path/to/output_folder \
+    --data_path /path/to/input_folder \
+    --output_path /path/to/output_folder \
     --eval
 ```
 
@@ -245,6 +243,8 @@ Additionally you can have a look at the script `run_rover_all.sh` that runs all 
 <details><summary>Photo-SLAM</summary>
 
 We are using [our fork](https://github.com/iis-esslingen/Photo-SLAM) of the official [Photo-SLAM](https://github.com/HuajianUP/Photo-SLAM) implementation. 
+
+**Note:** The container currently does not support visualization.
 
 Example to run the application in monocular mode:
 
@@ -282,8 +282,7 @@ We are using [our fork](https://github.com/iis-esslingen/Splat-SLAM) of the offi
 Example to run the application:
 
 ```bash
-python run.py \
-    --config /path/to/config.yaml \
+python run.py <config> \
     --input_dir /path/to/input_folder \
     --output_dir /path/to/output_folder \
     --only_tracking
