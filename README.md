@@ -11,7 +11,7 @@ The only required software is [Docker](https://www.docker.com/). Each SLAM metho
 
 When running the Dockerfiles, the first step is to navigate to the directory where the dataset is stored, as it will be mounted inside the Docker container.
 
-Tested using Ubuntu 22.04.
+Tested on Ubuntu 20.04 and 22.04 with CUDA versions 11 and 12, using NVIDIA GPUs including the RTX 4090, A5000, and A6000.
 
 ## Data
 Coming soon.
