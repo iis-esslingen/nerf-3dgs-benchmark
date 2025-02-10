@@ -7,6 +7,12 @@
 
 <br>
 
+## Updates
+
+- [x] Release docker containers. 
+- [x] Upload data.
+- [ ] Release evaluation pipeline.
+
 ## Getting Started
 The only required software is [Docker](https://www.docker.com/). Each SLAM method comes with its own Docker container, making setup straightforward. We recommend using VSCode with the Docker extension for an enhanced development experience. Additionally, we provide a Docker container with tools for evaluation.
 
@@ -15,7 +21,7 @@ When running the Dockerfiles, the first step is to navigate to the directory whe
 Tested on Ubuntu 20.04 and 22.04 with CUDA versions 11 and 12, using NVIDIA GPUs including the RTX 4090, A5000, and A6000.
 
 ## Data
-Coming soon.
+The data can be found [here](https://bwsyncandshare.kit.edu/s/kSKRjNjryWGBK3b).
 
 ## SLAM Methods
 Each method is available as a Docker container. When running the Dockerfiles, the first step is to enter the directory where the dataset is stored, as it will be mounted inside the Docker container.
