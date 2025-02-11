@@ -21,7 +21,7 @@ When running the Dockerfiles, the first step is to navigate to the directory whe
 Tested on Ubuntu 20.04 and 22.04 with CUDA versions 11 and 12, using NVIDIA GPUs including the RTX 4090, A5000, and A6000.
 
 ## Data
-The data can be found [here](https://bwsyncandshare.kit.edu/s/kSKRjNjryWGBK3b).
+The data is a subset of the [ROVER dataset](https://iis-esslingen.github.io/rover/) and can be found [here](https://bwsyncandshare.kit.edu/s/kSKRjNjryWGBK3b).
 
 ## SLAM Methods
 Each method is available as a Docker container. When running the Dockerfiles, the first step is to enter the directory where the dataset is stored, as it will be mounted inside the Docker container.
@@ -323,5 +323,17 @@ If you find our work useful, please consider citing:
       archivePrefix={arXiv},
       primaryClass={cs.RO},
       url={https://arxiv.org/abs/2412.03263}, 
+}
+```
+and the dataset used:
+```bibtex
+@article{schmidt2024rover,
+      title={ROVER: A Multi-Season Dataset for Visual SLAM}, 
+      author={Fabian Schmidt and Constantin Blessing and Markus Enzweiler and Abhinav Valada},
+      year={2024},
+      eprint={2412.02506},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2412.02506}, 
 }
 ```
