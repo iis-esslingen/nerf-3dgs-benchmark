@@ -2,7 +2,6 @@
   NeRF and Gaussian Splatting SLAM in the Wild
 
   [![arXiv](https://img.shields.io/badge/arXiv-2412.03263-b31b1b.svg?style=plastic)](https://arxiv.org/abs/2412.03263)
-  [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fiis-esslingen%2Fnerf-3dgs-benchmark&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
   
 </h1>
 
@@ -22,7 +21,7 @@ When running the Dockerfiles, the first step is to navigate to the directory whe
 Tested on Ubuntu 20.04 and 22.04 with CUDA versions 11 and 12, using NVIDIA GPUs including the RTX 4090, A5000, and A6000.
 
 ## Data
-The data is a subset of the [ROVER dataset](https://iis-esslingen.github.io/rover/) and can be found [here](https://bwsyncandshare.kit.edu/s/kSKRjNjryWGBK3b).
+The data is a subset of the [ROVER dataset](https://iis-esslingen.github.io/rover/) and can be found [here](https://fdm.hs-esslingen.de/schmidt2024nerfgsbenchmark/).
 
 ## SLAM Methods
 Each method is available as a Docker container. When running the Dockerfiles, the first step is to enter the directory where the dataset is stored, as it will be mounted inside the Docker container.
