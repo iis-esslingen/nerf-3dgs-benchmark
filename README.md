@@ -322,20 +322,18 @@ If you find our work useful, please consider citing:
     eprint={2412.03263},
     archivePrefix={arXiv},
     primaryClass={cs.RO},
-    url={https://arxiv.org/abs/2412.03263}, 
-}
+    url={https://arxiv.org/abs/2412.03263}}
 ```
 and the dataset used:
 ```bibtex
-@article{schmidt2025rover,
-    author={Schmidt, Fabian and Daubermann, Julian and Mitschke, Marcel and Blessing, Constantin and Meyer, Stephan and Enzweiler, Markus and Valada, Abhinav},
-    journal={IEEE Transactions on Robotics}, 
-    title={ROVER: A Multi-Season Dataset for Visual SLAM}, 
-    year={2025},
-    volume={},
-    number={},
-    pages={1-19},
-    keywords={Simultaneous localization and mapping;Visualization;Forestry;Robots;Lighting;Global navigation satellite system;Benchmark testing;Location awareness;Automobiles;Hands;SLAM;Visual SLAM;datasets;benchmark},
-    doi={10.1109/TRO.2025.3577026}
-}
+@ARTICLE{schmidt2025rover,
+  author={Schmidt, Fabian and Daubermann, Julian and Mitschke, Marcel and Blessing, Constantin and Meyer, Stephan and Enzweiler, Markus and Valada, Abhinav},
+  journal={IEEE Transactions on Robotics}, 
+  title={ROVER: A Multiseason Dataset for Visual SLAM}, 
+  year={2025},
+  volume={41},
+  number={},
+  pages={4005-4022},
+  keywords={Simultaneous localization and mapping;Visualization;Forestry;Robots;Lighting;Global navigation satellite system;Benchmark testing;Location awareness;Automobiles;Hands;Benchmark;datasets;simultaneous localization and mapping (SLAM);visual SLAM},
+  doi={10.1109/TRO.2025.3577026}}
 ```
